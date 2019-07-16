@@ -78,12 +78,21 @@ function handleItemCheckClicked() {
   });
 }
 
+// OLD SOLUTION
+// function deleteListItem(itemId) {
+//   console.log('Deleting item with id ' + itemId);
+//   const index = STORE.map(item => {
+//     return item.id;
+//   }).indexOf(itemId);
+//   STORE.splice(index, 1);
+// }
+
+// USING FIND METHOD
 function deleteListItem(itemId) {
   console.log('Deleting item with id ' + itemId);
-  const index = STORE.map(item => {
-    return item.id;
-  }).indexOf(itemId);
-  STORE.splice(index, 1);
+  const item = STORE.find(item => item.id === itemId);
+  const itemIndex = STORE.indexOf(item);
+  STORE.splice(itemIndex, 1);
 }
 
 function handleDeleteItemClicked() {
